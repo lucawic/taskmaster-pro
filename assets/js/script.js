@@ -111,15 +111,9 @@ $("#task-form-modal").on("shown.bs.modal", function() {
 
 // save button in modal was clicked
 $("#task-form-modal .btn-primary").click(function() {
-<<<<<<< HEAD
-  //get form values
-  var taskText = $("modalTaskDescription").val();
-  var taskDate = $("modalDueDate").val();
-=======
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
->>>>>>> feature/drag-drop
 
   if (taskText && taskDate) {
     createTask(taskText, taskDate, "toDo");
@@ -150,36 +144,6 @@ $(".list-group").on("click", "p", function() {
     .val(text);
   $(this).replaceWith(textInput);
 
-<<<<<<< HEAD
-//auto focus a new element
-textInput.trigger("focus");
-});
-  
-  $(".list-group").on("blur", "textarea", function() {
-    //get the textarea's current value/text
-    var text = $(this).val();
-    //get the parents ul's id attribute
-    var status = $(this)
-      .closest(".list-group")
-      .attr("id")
-      .replace("list-", "");
-    //get the tasks position in the list of other li elements
-    var index = $(this)
-      .closest("list-group-item")
-      .index();
-    
-    tasks[status][index].text = text;
-      saveTasks();
-
-    //recreate p element
-    var taskP = $("<p>")
-      .addClass("m-1")
-      .text(text);
-
-    //replace textarea with p element
-    $(this).replaceWith(taskP);
-});
-=======
   // auto focus new element
   textInput.trigger("focus");
 });
@@ -188,7 +152,6 @@ textInput.trigger("focus");
 $(".list-group").on("blur", "textarea", function() {
   // get current value of textarea
   var text = $(this).val();
->>>>>>> feature/drag-drop
 
   // get status type and position in the list
   var status = $(this)
@@ -230,14 +193,8 @@ $(".list-group").on("click", "span", function() {
   dateInput.trigger("focus");
 });
 
-<<<<<<< HEAD
-//if value of due date is changed, after a task has been created
-$("list-group").on("blur", "input[type='text']", function(){
-  //get current text
-=======
 // value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
->>>>>>> feature/drag-drop
   var date = $(this).val();
 
   // get status type and position in the list
@@ -260,10 +217,6 @@ $(".list-group").on("blur", "input[type='text']", function() {
   $(this).replaceWith(taskSpan);
 });
 
-<<<<<<< HEAD
-  //replace input with span element
-  $(this).replaceWith(taskSpan);
-=======
 // trash icon can be dropped onto
 $("#trash").droppable({
   accept: ".card .list-group-item",
@@ -279,7 +232,6 @@ $("#trash").droppable({
   out: function(event, ui) {
     console.log(ui);
   }
->>>>>>> feature/drag-drop
 });
 
 // remove all tasks
